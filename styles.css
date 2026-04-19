@@ -896,20 +896,31 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--text-dark); line
   .nav-links {
     display: none;
     position: fixed;
-    top: var(--nav-h); left: 0; right: 0; bottom: 0;
-    background: rgba(9,22,43,.98);
-    backdrop-filter: blur(20px);
+    top: var(--nav-h);
+    left: 0; right: 0; bottom: 0;
+    z-index: 999;
+    background: #09162B;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding: 1.5rem var(--gutter) 2rem;
+    padding: 1rem var(--gutter) 3rem;
     overflow-y: auto;
-    border-top: 1px solid rgba(201,168,76,.18);
+    -webkit-overflow-scrolling: touch;
+    border-top: 1px solid rgba(201,168,76,.25);
     margin-left: 0;
   }
   .nav-links.open { display: flex; }
-  .nav-links a { font-size: 17px; font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.07); border-radius: 0; color: rgba(255,255,255,.82); }
-  .nav-links a::after { display: none; }
+  .nav-links a {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 16px 4px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    border-radius: 0;
+    color: rgba(255,255,255,.82);
+    display: block;
+    width: 100%;
+  }
+  .nav-links a::after { display: none !important; }
   .nav-links a:last-child { border-bottom: none; }
   .nav-links a.active { color: var(--gold); }
   .hamburger { display: flex; }
