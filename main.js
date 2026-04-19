@@ -19,11 +19,18 @@
   const navLinks  = document.getElementById('navLinks');
 
   if (hamburger && navLinks) {
+    const syncDrawerTop = () => {
+      // Always sync drawer top to actual rendered navbar height
+      const h = navbar.getBoundingClientRect().height;
+      navLinks.style.top = h + 'px';
+    };
+
     const openMenu = () => {
+      syncDrawerTop();
       navLinks.classList.add('open');
       hamburger.classList.add('is-active');
       hamburger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden'; // prevent background scroll
+      document.body.style.overflow = 'hidden';
     };
     const closeMenu = () => {
       navLinks.classList.remove('open');
