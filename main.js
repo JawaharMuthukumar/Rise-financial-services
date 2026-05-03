@@ -178,22 +178,8 @@
     });
   });
 
-  /* ---- Contact form submit feedback ---- */
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const btn = this.querySelector('button[type=submit]');
-      const original = btn.textContent;
-      btn.textContent = '✓ Application Submitted!';
-      btn.style.cssText = 'background:#16A34A;border-color:#16A34A;pointer-events:none';
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.style.cssText = '';
-        this.reset();
-      }, 4000);
-    });
-  }
+  /* ---- Contact form submit feedback (handled inline in contact.html) ---- */
+  // contactForm dual-submit (WhatsApp + Formspree) is handled by inline script in contact.html
 
   /* ---- Quick eligibility form on homepage ---- */
   const quickForm = document.querySelector('.quick-form');
