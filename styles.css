@@ -971,3 +971,51 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--text-dark); line
 
 /* ===== UTILITY ===== */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* ===== LOGO IMAGE ===== */
+.logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+.logo-icon { display: none; } /* hide letter fallback when image logo used */
+
+/* ===== FOOTER SOCIAL - EXTENDED ===== */
+.footer-social-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.12);
+  transition: all .2s;
+  color: rgba(255,255,255,.65);
+  background: rgba(255,255,255,.06);
+  white-space: nowrap;
+}
+.social-btn:hover { color: var(--white); border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.12); }
+.social-btn.instagram:hover { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-color: transparent; color:#fff; }
+.social-btn.facebook:hover { background: #1877F2; border-color: transparent; color: #fff; }
+.social-btn.linkedin:hover { background: #0A66C2; border-color: transparent; color: #fff; }
+.social-btn.whatsapp-btn:hover { background: #25D366; border-color: transparent; color: #fff; }
+
+/* ===== MOBILE NAV — ensure hamburger always shows on mobile ===== */
+@media (max-width: 860px) {
+  .logo-img { height: 38px; }
+}
+@media (max-width: 480px) {
+  .logo-img { height: 34px; }
+  .footer-social-banner { gap: 6px; }
+  .social-btn { font-size: 11px; padding: 6px 10px; }
+}
