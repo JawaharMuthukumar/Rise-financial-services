@@ -974,12 +974,21 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--text-dark); line
 
 /* ===== LOGO IMAGE ===== */
 .logo-img {
-  height: 44px;
+  height: 48px;
   width: auto;
   display: block;
   object-fit: contain;
+  /* Transparent PNG — no background needed */
+  background: transparent;
+  /* Slight drop shadow for contrast on light/dark */
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));
+  transition: filter 0.2s;
 }
-.logo-icon { display: none; } /* hide letter fallback when image logo used */
+.logo:hover .logo-img {
+  filter: drop-shadow(0 2px 8px rgba(201,168,76,0.45));
+}
+.logo-icon { display: none !important; } /* hide letter fallback */
+.logo-text { display: none !important; } /* hide text fallback — full logo in image */
 
 /* ===== FOOTER SOCIAL - EXTENDED ===== */
 .footer-social-banner {
@@ -1012,10 +1021,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--text-dark); line
 
 /* ===== MOBILE NAV — ensure hamburger always shows on mobile ===== */
 @media (max-width: 860px) {
-  .logo-img { height: 38px; }
+  .logo-img { height: 42px; }
 }
 @media (max-width: 480px) {
-  .logo-img { height: 34px; }
+  .logo-img { height: 36px; }
   .footer-social-banner { gap: 6px; }
   .social-btn { font-size: 11px; padding: 6px 10px; }
 }
