@@ -450,6 +450,16 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--text-dark); line
   letter-spacing: 1px;
   font-weight: 500;
 }
+.stats-states-banner {
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255,255,255,.88);
+  padding: 16px 0 0 0;
+  margin-top: 12px;
+  border-top: 1px solid rgba(201,168,76,.15);
+  font-weight: 600;
+  line-height: 1.6;
+}
 
 /* ===== PROBLEM SECTION ===== */
 .problem-section { background: var(--white); }
