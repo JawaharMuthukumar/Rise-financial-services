@@ -14,29 +14,21 @@
     onScroll();
   }
 
-  /* ---- Mobile hamburger menu ---- */
+  /* ---- Mobile hamburger menu — slide-down animation ---- */
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
 
   if (hamburger && navLinks) {
-    const syncDrawerTop = () => {
-      // Always sync drawer top to actual rendered navbar height
-      const h = navbar.getBoundingClientRect().height;
-      navLinks.style.top = h + 'px';
-    };
-
     const openMenu = () => {
-      syncDrawerTop();
       navLinks.classList.add('open');
       hamburger.classList.add('is-active');
       hamburger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
+      // No body overflow lock — menu doesn't cover full screen
     };
     const closeMenu = () => {
       navLinks.classList.remove('open');
       hamburger.classList.remove('is-active');
       hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
     };
 
     hamburger.setAttribute('aria-expanded', 'false');
