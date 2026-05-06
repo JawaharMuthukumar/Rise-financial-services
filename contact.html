@@ -167,6 +167,7 @@
             <button type="submit" class="btn btn-gold w-full" style="font-size:16px;padding:15px">Submit Application →</button>
             <p class="form-promise">✓ Free eligibility check &nbsp;·&nbsp; ✓ No hard credit pull &nbsp;·&nbsp; ✓ Response within 2 hours</p>
           </form>
+          <div id="successMessage" style="display:none; color:#28a745; font-weight:600; margin-top:15px; text-align:center;">Application successfully submitted!</div>
         </div>
       </div>
     </div>
@@ -290,18 +291,33 @@
 
 <script>
 document.getElementById('contactForm').addEventListener('submit', function(e) {
-  // Collect form data
+  e.preventDefault();
   const formData = new FormData(this);
-  let message = 'New Business Loan Application:\n\n';
-  for (let [key, value] of formData.entries()) {
-    message += `${key}: ${value}\n`;
-  }
-  // Encode for WhatsApp
-  const encodedMessage = encodeURIComponent(message);
-  const whatsappUrl = `https://wa.me/919840464168?text=${encodedMessage}`;
-  // Open WhatsApp in new tab
-  window.open(whatsappUrl, '_blank');
-  // Let the form submit to Formspree normally
+  
+  // Send to Formspree
+  fetch(this.action, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      document.getElementById('successMessage').style.display = 'block';
+      // Construct WhatsApp message
+      let message = 'New Business Loan Application:\n\n';
+      for (let [key, value] of formData.entries()) {
+        message += `${key}: ${value}\n`;
+      }
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/919840464168?text=${encodedMessage}`;
+      window.open(whatsappUrl, '_blank');
+    } else {
+      alert('Error submitting form. Please try again.');
+    }
+  }).catch(error => {
+    alert('Error submitting form. Please try again.');
+  });
 });
 </script>
 
