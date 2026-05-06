@@ -182,6 +182,30 @@
     });
   }
 
+  /* ---- Autofill contact page from quick eligibility query ---- */
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    const params = new URLSearchParams(window.location.search);
+    const fieldNames = ['business', 'mobile', 'loanAmount', 'businessType', 'name', 'city', 'purpose'];
+    let filled = false;
+
+    fieldNames.forEach(fieldName => {
+      const value = params.get(fieldName);
+      if (!value) return;
+      const field = contactForm.elements[fieldName];
+      if (!field) return;
+      field.value = value;
+      filled = true;
+    });
+
+    if (filled) {
+      const firstField = contactForm.querySelector('input[name="business"], input[name="mobile"], input[name="name"]');
+      if (firstField) {
+        setTimeout(() => firstField.scrollIntoView({ behavior: 'smooth', block: 'center' }), 250);
+      }
+    }
+  }
+
   console.log('%cRise Financial Services', 'color:#C9A84C;font-family:Georgia;font-size:18px;font-weight:bold');
   console.log('%cDirect Lender · Unsecured Business Loans · South India', 'color:#1E3A6A;font-size:12px');
 })();
