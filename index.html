@@ -60,33 +60,33 @@
         <form class="quick-form" action="contact.html" method="get">
           <div class="form-group">
             <label for="hf-business">Business Name</label>
-            <input id="hf-business" type="text" placeholder="Your company name" autocomplete="organization">
+            <input id="hf-business" name="business" type="text" placeholder="Your company name" autocomplete="organization">
           </div>
           <div class="form-group">
             <label for="hf-mobile">Mobile Number</label>
-            <input id="hf-mobile" type="tel" placeholder="+91 XXXXX XXXXX" autocomplete="tel">
+            <input id="hf-mobile" name="mobile" type="tel" placeholder="+91 XXXXX XXXXX" autocomplete="tel">
           </div>
           <div class="form-group">
             <label for="hf-amount">Loan Amount Required</label>
-            <select id="hf-amount">
+            <select id="hf-amount" name="loanAmount">
               <option value="">Select range</option>
-              <option>₹ 50 Lakhs – ₹ 1 Crore</option>
-              <option>₹ 1 Crore – ₹ 5 Crores</option>
-              <option>₹ 5 Crores – ₹ 10 Crores</option>
-              <option>₹ 10 Crores – ₹ 25 Crores</option>
-              <option>₹ 25 Crores – ₹ 50 Crores</option>
+              <option value="₹ 50 Lakhs – ₹ 1 Crore">₹ 50 Lakhs – ₹ 1 Crore</option>
+              <option value="₹ 1 Crore – ₹ 5 Crores">₹ 1 Crore – ₹ 5 Crores</option>
+              <option value="₹ 5 Crores – ₹ 10 Crores">₹ 5 Crores – ₹ 10 Crores</option>
+              <option value="₹ 10 Crores – ₹ 25 Crores">₹ 10 Crores – ₹ 25 Crores</option>
+              <option value="₹ 25 Crores – ₹ 50 Crores">₹ 25 Crores – ₹ 50 Crores</option>
             </select>
           </div>
           <div class="form-group">
             <label for="hf-type">Business Type</label>
-            <select id="hf-type">
+            <select id="hf-type" name="businessType">
               <option value="">Select type</option>
-              <option>Manufacturing</option>
-              <option>Trading</option>
-              <option>Services</option>
-              <option>Construction</option>
-              <option>Export/Import</option>
-              <option>Other</option>
+              <option value="Manufacturing">Manufacturing</option>
+              <option value="Trading / Distribution">Trading / Distribution</option>
+              <option value="Services">Services</option>
+              <option value="Construction">Construction</option>
+              <option value="Export / Import">Export / Import</option>
+              <option value="Other">Other</option>
             </select>
           </div>
           <button type="submit" class="btn btn-gold w-full">Check My Eligibility →</button>
@@ -422,7 +422,10 @@
       </div>
       <div class="footer-contact-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <a href="mailto:contact@risefinancialservices.org">contact@risefinancialservices.org</a>
+        <div style="display:flex; flex-direction:column; gap:.25rem;">
+          <a href="mailto:admin@risefinancialservice.com">admin@risefinancialservice.com</a>
+          <a href="mailto:sales@risefinancialservice.com">sales@risefinancialservice.com</a>
+        </div>
       </div>
       <div class="footer-contact-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
